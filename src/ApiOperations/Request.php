@@ -2,10 +2,12 @@
 
 namespace Digikraaft\Watupay\ApiOperations;
 
+use Digikraaft\Watupay\Exceptions\ApiErrorException;
 use Digikraaft\Watupay\Exceptions\InvalidArgumentException;
 use Digikraaft\Watupay\Exceptions\IsNullException;
 use Digikraaft\Watupay\Watupay;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 
 /**
  * Trait for resources that need to make API requests.
@@ -104,11 +106,14 @@ trait Request
         }
 
         static::setRequestOptions();
-
-        static::$response = static::$client->{strtolower($method)}(
-            Watupay::$apiBase.'/'.$url,
-            ['body' => json_encode($body)]
-        );
+        try {
+            static::$response = static::$client->{strtolower($method)}(
+                Watupay::$apiBase . '/' . $url,
+                ['body' => json_encode($body)]
+            );
+        }catch(ClientException $exception){
+            throw new ApiErrorException($exception->getMessage());
+        }
 
         return static::$response;
     }
@@ -120,7 +125,8 @@ trait Request
      */
     private static function getResponse(): array
     {
-        return json_decode(static::$response->getBody(), true);
+       return json_decode(static::$response->getBody(), true);
+
     }
 
     /**
