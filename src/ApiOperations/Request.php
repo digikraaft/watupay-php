@@ -106,12 +106,13 @@ trait Request
         }
 
         static::setRequestOptions();
+
         try {
             static::$response = static::$client->{strtolower($method)}(
                 Watupay::$apiBase . '/' . $url,
                 ['body' => json_encode($body)]
             );
-        }catch(ClientException $exception){
+        } catch (ClientException $exception) {
             throw new ApiErrorException($exception->getMessage());
         }
 
@@ -125,8 +126,7 @@ trait Request
      */
     private static function getResponse(): array
     {
-       return json_decode(static::$response->getBody(), true);
-
+        return json_decode(static::$response->getBody(), true);
     }
 
     /**
