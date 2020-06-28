@@ -3,6 +3,8 @@
 namespace Digikraaft\Watupay\Tests;
 
 use Digikraaft\Watupay\ApiOperations\Request;
+use Digikraaft\Watupay\Bill;
+use Digikraaft\Watupay\Exceptions\ApiErrorException;
 use Digikraaft\Watupay\Exceptions\InvalidArgumentException;
 use Digikraaft\Watupay\Exceptions\IsNullException;
 use Mockery as mk;
@@ -62,6 +64,28 @@ class RequestTest extends TestCase
     public function it_can_return_exception_when_request_method_is_null()
     {
         $this->expectException(IsNullException::class);
-        $resp = Request::staticRequest(null, 'customer', [], 'obj');
+        $resp = Request::staticRequest(null, 'payment', [], 'obj');
+    }
+
+    /** @test */
+    public function it_can_return_api_error_exception()
+    {
+        $this->expectException(ApiErrorException::class);
+        Bill::fetch('bil-xyz');
+    }
+
+    /** @test */
+    public function it_can_return_exception_when_return_type_is_invalid()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        Request::staticRequest(null, 'payment', [], 'xyz');
+    }
+
+    /** @test */
+    public function it_can_return_array_response()
+    {
+        $bills = Request::staticRequest('GET', 'watubill/channels', [], 'arr');
+
+        $this->assertEquals('array', gettype($bills));
     }
 }

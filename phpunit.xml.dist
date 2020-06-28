@@ -26,8 +26,8 @@
         <log type="coverage-clover" target="build/logs/clover.xml"/>
     </logging>
     <php>
-        <env name="WATUPAY_PUBLIC_KEY" value="pk_test_123456abcde"/>
-        <env name="WATUPAY_ENCRYPTION_KEY" value="0123457abcdef" />
+        <env name="WATUPAY_PUBLIC_KEY" value="WTP-T-SK-abcd1234abcd"/>
+        <env name="WATUPAY_ENCRYPTION_KEY" value="f0f0012340123457abcdef" />
         <env name="WATUPAY_IV_KEY" value="abcdefghi" />
     </php>
 </phpunit>

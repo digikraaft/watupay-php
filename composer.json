@@ -12,14 +12,15 @@
         {
             "name": "Tim Oladoyinbo",
             "email": "dev@digitalkraaft.com",
-            "homepage": "https://digitalkraaft.com",
+            "homepage": "https://github.com/digikraaft",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^7.4",
         "guzzlehttp/guzzle": "^6.5",
-        "ext-json": "*"
+        "ext-json": "*",
+      "ext-openssl": "*"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",

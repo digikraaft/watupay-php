@@ -58,7 +58,7 @@ class Verify extends ApiResource
      * @throws Exceptions\IsNullException
      * @link https://docs.watu.global/?version=latest#2ec28462-ddd0-4c51-8b7f-0e2da5d66b5e
      */
-    public static function verify($params)
+    public static function verify(array $params)
     {
         self::validateParams($params, true);
         $url = static::classUrl();

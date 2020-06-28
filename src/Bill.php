@@ -55,7 +55,7 @@ class Bill extends ApiResource
      * @throws Exceptions\IsNullException
      * @link https://docs.watu.global/?version=latest#815d343b-6ff6-4517-9250-44fca3681164
      */
-    public static function validate($params)
+    public static function validate(array $params)
     {
         self::validateParams($params, true);
         $url = static::endPointUrl('validate');
@@ -70,7 +70,7 @@ class Bill extends ApiResource
      * @throws Exceptions\IsNullException
      * @link https://docs.watu.global/?version=latest#815d343b-6ff6-4517-9250-44fca3681164
      */
-    public static function vend($params)
+    public static function vend(array $params)
     {
         self::validateParams($params, true);
         $url = static::endPointUrl('vend');
@@ -85,7 +85,7 @@ class Bill extends ApiResource
      * @throws Exceptions\IsNullException
      * @link https://docs.watu.global/?version=latest#819c826f-6d55-4052-aea2-eb6f88483057
      */
-    public static function validateCopy($params)
+    public static function validateCopy(array $params)
     {
         self::validateParams($params, true);
         $url = static::endPointUrl('bill-types');

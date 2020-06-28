@@ -26,6 +26,8 @@ Before this, the API key needs to be set. For example, to access the `watubill/c
 ```
 <?php 
 
+include_once('vendor/autoload.php');
+
 use Digikraaft\Watupay\Watupay;
 use Digikraaft\Watupay\Bill;
 
@@ -36,6 +38,8 @@ $bills = Bill::list();
 You can easily pass parameters to be sent as arguments to the `API_END_POINT` method like this:
 ```
 <?php
+
+include_once('vendor/autoload.php');
 
 use Digikraaft\Watupay\Watupay;
 use Digikraaft\Watupay\Bill;
@@ -52,13 +56,15 @@ $bills = Bill::list($params);
 
 ```
 
-This also applies to `POST` and `PUT` requests.
+This also applies to `POST` requests.
 
-For endpoints that require path parameters like the `fetch bill` with the request like `channel/info/bill_id`,
+For endpoints that require path parameters like the `fetch bill` with the request `channel/info/bill_id`,
 simply pass in a string into the `API_END_POINT` like this:
 
 ```
 <?php
+
+include_once('vendor/autoload.php');
 
 use Digikraaft\Watupay\Watupay;
 use Digikraaft\Watupay\Bill;
@@ -76,6 +82,8 @@ This package returns the exact response from the Watupay API but as the `stdClas
 ```
 <?php
 
+include_once('vendor/autoload.php');
+
 use Digikraaft\Watupay\Watupay;
 use Digikraaft\Watupay\Bill;
 
@@ -87,10 +95,44 @@ if (! $bill->has_error) {
 }
 
 ```
+## Exception Handling   
+To handle API exceptions, use the `Digikraaft\Watupay\Exceptions\ApiErrorException` class like this:
+
+```
+<?php
+
+include_once('vendor/autoload.php');
+
+use Digikraaft\Watupay\Watupay;
+use Digikraaft\Watupay\Bill;
+use Digikraaft\Watupay\Exceptions\ApiErrorException;
+
+Watupay::setApiKey('WTP-T-SK-abcd1234abcd');
+try{
+    Watupay::setApiKey('WTP-T-SK-abcd1234abcd');
+    $bill = Bill::fetch('bill-07');
+    
+    if (! $bill->has_error) {
+        echo $bill->data->name;
+    }
+}catch(ApiErrorException $exception){
+    echo $exception->getMessage();
+}
+
+```
+## Data Encryption
+To encrypt sensitive data before sending to the API, use the `WatupayEncryption::encrypt($data, $key, $iv, $blockSize, $mode)` method
+
 ## Documentation
-For detailed documentation, check the wiki page [here](../../wiki)
+For detailed documentation, check the wiki page [here](../../wiki).
+Also, check the [Watupay Documentation](https://docs.watu.global/?version=latest) for details on input parameters.
+
+## More Good Stuff
+Check [here](https://github.com/digikraaft) for more awesome free stuff!
 
 ## Testing
+Some tests are against the actual Watupay API, so put in your API, Encryption and IV keys
+as shown in the `phpunit.xml.dist` file.
 
 ``` bash
 composer test
