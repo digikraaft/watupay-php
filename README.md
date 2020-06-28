@@ -1,4 +1,5 @@
 # PHP Implementation of the [Watupay](https://watu.global/) API
+![tests](https://github.com/digikraaft/watupay-php/workflows/tests/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This package provides an expressive and convenient way to interact with the [Watupay](https://watu.global/) API
