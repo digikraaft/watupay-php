@@ -4,7 +4,6 @@
 namespace Digikraaft\Watupay\Tests;
 
 use Digikraaft\Watupay\WatupayEncryption;
-use http\Exception;
 use PHPUnit\Framework\TestCase;
 
 class WatupayEncryptionTest extends TestCase
