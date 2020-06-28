@@ -1,5 +1,8 @@
 # PHP Implementation of the [Watupay](https://watu.global/) API
 ![tests](https://github.com/digikraaft/watupay-php/workflows/tests/badge.svg)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/digikraaft/watupay-php/badges/quality-score.png?b=master&s=5ce36706139b24aa5ea37fca5994075cd8999353)](https://scrutinizer-ci.com/g/digikraaft/watupay-php/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/digikraaft/watupay-php/badges/build.png?b=master&s=5e6fab031fccdfd4aaabd0c1f7d6d99aca0489a1)](https://scrutinizer-ci.com/g/digikraaft/watupay-php/build-status/master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/digikraaft/watupay-php/badges/code-intelligence.svg?b=master&s=fd98dfdd1032581973067d98be07844f12f32dc4)](https://scrutinizer-ci.com/code-intelligence)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This package provides an expressive and convenient way to interact with the [Watupay](https://watu.global/) API
