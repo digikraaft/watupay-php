@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `paystack-php` will be documented in this file
+All notable changes to `digikraaft/watupay-php` will be documented in this file
 
 ## v1.0.1 - 2020-06-29
 
